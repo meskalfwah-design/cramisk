@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2C1810">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>جميع المنتجات | CARAMISC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar" style="background:rgba(44,24,16,0.97);backdrop-filter:blur(15px) saturate(180%);">
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+        <a href="index.html" class="nav-logo">
+            <span class="ar">كراميسك</span> CARAMISC
+        </a>
+        <button class="nav-cart" id="navCartIcon" aria-label="سلة المشتريات">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="pointer-events:none;">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </nav>
+
+    <!-- Spacer for fixed navbar -->
+    <div style="height:56px;"></div>
+
+    <!-- Side Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="index.html#new-arrivals">✨ وصل حديثاً</a></li>
+        <li><a href="products.html">📋 جميع المنتجات</a></li>
+        <li><a href="gifts.html">🎁 صناديق الهدايا</a></li>
+        <li><a href="index.html#timeline">📖 قصتنا</a></li>
+        <li><a href="https://wa.me/218917021437" target="_blank" rel="noopener">💬 واتساب</a></li>
+    </ul>
+
+    <!-- Products Section -->
+    <section class="section" id="products" style="padding-top:24px;">
+        <h2 class="section-title">جميع المنتجات</h2>
+        <p class="section-subtitle">اختر كيك الكراميل المفضل لديك</p>
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-filter="all">الكل</button>
+            <button class="filter-tab" data-filter="cake">كيك</button>
+            <button class="filter-tab" data-filter="cheesecake">تشيز كيك</button>
+            <button class="filter-tab" data-filter="special">خاص</button>
+            <button class="filter-tab" data-filter="gift">هدايا</button>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">CARAMISC كراميسك</div>
+        <p class="footer-desc">متخصصون في كيك الكراميل الفاخر. تشكيلة فريدة من الحلويات المصنوعة يدوياً في قلب طرابلس.</p>
+        <p class="footer-location">📍 طرابلس، ليبيا | 📞 <a href="https://wa.me/218917021437" rel="noopener">+218 91-8977218</a></p>
+        <div class="footer-bottom">© 2026 CARAMISC. جميع الحقوق محفوظة.</div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>🛒 سلة المشتريات</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="إغلاق">✕</button>
+        </div>
+        <div class="cart-items-list" id="cartItemsList"></div>
+        <div class="cart-footer-area">
+            <div class="cart-total"><span>المجموع</span><span id="cartTotal">0 د.ل</span></div>
+            <button class="btn-whatsapp" id="whatsappOrderBtn">📱 اطلب عبر واتساب</button>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="pdp-overlay" id="pdpOverlay">
+        <div class="pdp-box">
+            <button class="pdp-close-btn" id="pdpCloseBtn" aria-label="إغلاق">✕</button>
+            <div class="pdp-img" id="pdpImage"></div>
+            <div class="pdp-details">
+                <h2 id="pdpName"></h2>
+                <p class="origin" id="pdpOrigin"></p>
+                <p class="price" id="pdpPrice"></p>
+                <p class="desc" id="pdpDesc"></p>
+                <div class="pdp-actions">
+                    <div class="qty-box">
+                        <button id="pdpMinus" aria-label="تقليل">−</button>
+                        <span id="pdpQty">1</span>
+                        <button id="pdpPlus" aria-label="زيادة">+</button>
+                    </div>
+                    <button class="btn-pdp-add" id="pdpAddBtn">أضف للسلة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <button class="whatsapp-float-btn" onclick="window.open('https://wa.me/218917021437','_blank')" title="تواصل واتساب" aria-label="تواصل واتساب">💬</button>
+
+    <!-- Toast -->
+    <div class="toast-msg" id="toastMsg" role="status" aria-live="polite"></div>
+
+    <script src="js/cart.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        var products = [
+            { id:1, name:"كيك كراميل كلاسيكي", origin:"طبقات إسفنجية بصوص الكراميل", price:85, category:"cake", emoji:"🍰", img:"classic.jpg", desc:"كيك إسفنجي فانيلا مغطى بكريمة الزبدة بالكراميل ومزين بالجوز. نكهة غنية ومتوازنة.", gift:false },
+            { id:2, name:"تشيز كيك الكراميل", origin:"تشيز كيك بارد بصوص الكراميل", price:95, category:"cheesecake", emoji:"🧀", img:"cheese.jpg", desc:"قاعدة بسكويت مع حشوة جبن كريمي غنية وطبقة كراميل مملح.", gift:false },
+            { id:3, name:"براوني الكراميل", origin:"براوني شوكولاتة بصوص الكراميل", price:75, category:"cake", emoji:"🍫", img:"brownie.jpg", desc:"براوني شوكولاتة داكنة مع عروق كراميل لزجة ورشة ملح بحري.", gift:false },
+            { id:4, name:"تارت الكراميل بالتمر", origin:"تارت كراميل فانيلا طرابلسي", price:70, category:"cake", emoji:"🥧", img:"tart.jpg", desc:"تارت محشو بكريمة التمر والكراميل مع طبقة كراميل مقرمشة.", gift:false },
+            { id:5, name:"كب كيك الكراميل (6)", origin:"6 حبات كب كيك محشية", price:60, category:"cake", emoji:"🧁", img:"cupcake.jpg", desc:"كب كيك فانيلا طري محشو بصوص الكراميل ومغطى بكريمة ذهبية.", gift:false },
+            { id:6, name:"حلويات مشكلة", origin:"تشكيلة منوعة من حلويات الكراميل", price:120, category:"special", emoji:"🍬", img:"mixed.jpg", desc:"طبق يضم قطعاً مختارة من أشهر حلوياتنا: كيك، براوني، تارت، وكب كيك.", gift:false },
+            { id:7, name:"مالفي زمان", origin:"كيكة مالفي كراميل تقليدية", price:90, category:"special", emoji:"🥮", img:"malvi.jpg", desc:"وصفة قديمة من المطبخ الليبي: كيكة مالفي محشوة بصوص الكراميل والمكسرات.", gift:false },
+            { id:8, name:"تورتة زمان", origin:"تورتة كراميل فاخرة", price:150, category:"special", emoji:"🎂", img:"torta.jpg", desc:"تورتة كبيرة متعددة الطبقات بكريمة الكراميل والجوز، مثالية للمناسبات.", gift:true },
+            { id:9, name:"طبق كيك الكراميل المشكل", origin:"مجموعة تذوق – 4 أنواع", price:180, category:"gift", emoji:"🎁", img:"sampler.jpg", desc:"شرائح متنوعة من جميع كيكات الكراميل لدينا. مثالي للهدايا.", gift:true }
+        ];
+
+        function getImageHTML(p) {
+            if (p.img) return '<img src="images/' + p.img + '" alt="' + p.name + '" loading="lazy">';
+            return '<span class="product-emoji">' + p.emoji + '</span>';
+        }
+
+        function renderProducts(filter) {
+            filter = filter || 'all';
+            var list = filter === 'all' ? products : products.filter(function(p) { return p.category === filter; });
+            var grid = document.getElementById('productsGrid');
+            grid.innerHTML = list.map(function(p) {
+                return '<div class="product-card" data-pid="' + p.id + '">' +
+                    (p.gift ? '<div class="gift-ribbon">هدية</div>' : '') +
+                    '<div class="product-img">' + getImageHTML(p) + '</div>' +
+                    '<div class="product-info">' +
+                        '<div class="product-name">' + p.name + '</div>' +
+                        '<div class="product-origin">' + p.origin + '</div>' +
+                        '<div class="product-footer">' +
+                            '<span class="product-price">' + p.price + ' د.ل</span>' +
+                            '<button class="btn-quick-add" data-quick="' + p.id + '">+</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+
+            document.querySelectorAll('.product-card').forEach(function(card) {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('.btn-quick-add')) return;
+                    var pid = parseInt(card.dataset.pid);
+                    openPdp(pid);
+                });
+            });
+            document.querySelectorAll('.btn-quick-add').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var pid = parseInt(btn.dataset.quick);
+                    addToCart(pid, 1);
+                });
+            });
+        }
+
+        // Filter tabs
+        var filterTabs = document.getElementById('filterTabs');
+        if (filterTabs) {
+            filterTabs.addEventListener('click', function(e) {
+                if (e.target.classList.contains('filter-tab')) {
+                    document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+                    e.target.classList.add('active');
+                    renderProducts(e.target.dataset.filter);
+                }
+            });
+        }
+
+        renderProducts();
+    })();
+    </script>
+</body>
+</html>
