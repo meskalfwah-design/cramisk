@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2C1810">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>صناديق الهدايا | CARAMISC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar" style="background:rgba(44,24,16,0.97);backdrop-filter:blur(15px) saturate(180%);">
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+        <a href="index.html" class="nav-logo">
+            <span class="ar">كراميسك</span> CARAMISC
+        </a>
+        <button class="nav-cart" id="navCartIcon" aria-label="سلة المشتريات">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="pointer-events:none;">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </nav>
+
+    <!-- Spacer -->
+    <div style="height:56px;"></div>
+
+    <!-- Side Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="index.html#new-arrivals">✨ وصل حديثاً</a></li>
+        <li><a href="products.html">📋 جميع المنتجات</a></li>
+        <li><a href="gifts.html">🎁 صناديق الهدايا</a></li>
+        <li><a href="index.html#timeline">📖 قصتنا</a></li>
+        <li><a href="https://wa.me/218917021437" target="_blank" rel="noopener">💬 واتساب</a></li>
+    </ul>
+
+    <!-- Gifts Section -->
+    <section class="section" id="gifts" style="padding-top:24px;">
+        <h2 class="section-title">صناديق الهدايا</h2>
+        <p class="section-subtitle">لحظات تستحق كراميسك</p>
+        <div class="gift-grid" id="giftGrid"></div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section" style="background:linear-gradient(180deg,#fff 0%,var(--cream) 100%);">
+        <h2 class="section-title">لماذا نختار كراميسك؟</h2>
+        <p class="section-subtitle">جودة لا تُضاهى في كل قطعة</p>
+        <div class="gift-grid" style="max-width:900px;">
+            <div class="gift-card reveal">
+                <div class="gift-icon">🌿</div>
+                <div class="gift-title">مكونات طبيعية</div>
+                <div class="gift-desc">لا نستخدم مواد حافظة أو ألوان صناعية. كل المكونات طازجة وطبيعية 100%</div>
+            </div>
+            <div class="gift-card reveal">
+                <div class="gift-icon">🎨</div>
+                <div class="gift-title">تغليف فاخر</div>
+                <div class="gift-desc">صناديق هدايا أنيقة بتصميم ذهبي فاخر مناسبة لكل المناسبات</div>
+            </div>
+            <div class="gift-card reveal">
+                <div class="gift-icon">⚡</div>
+                <div class="gift-title">توصيل سريع</div>
+                <div class="gift-desc">نوصل طلبك في طرابلس خلال ساعتين مع حافظة مبردة للحفاظ على الطراوة</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">CARAMISC كراميسك</div>
+        <p class="footer-desc">متخصصون في كيك الكراميل الفاخر. تشكيلة فريدة من الحلويات المصنوعة يدوياً في قلب طرابلس.</p>
+        <p class="footer-location">📍 طرابلس، ليبيا | 📞 <a href="https://wa.me/218917021437" rel="noopener">+218 91-8977218</a></p>
+        <div class="footer-bottom">© 2026 CARAMISC. جميع الحقوق محفوظة.</div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>🛒 سلة المشتريات</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="إغلاق">✕</button>
+        </div>
+        <div class="cart-items-list" id="cartItemsList"></div>
+        <div class="cart-footer-area">
+            <div class="cart-total"><span>المجموع</span><span id="cartTotal">0 د.ل</span></div>
+            <button class="btn-whatsapp" id="whatsappOrderBtn">📱 اطلب عبر واتساب</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <button class="whatsapp-float-btn" onclick="window.open('https://wa.me/218917021437','_blank')" title="تواصل واتساب" aria-label="تواصل واتساب">💬</button>
+
+    <!-- Toast -->
+    <div class="toast-msg" id="toastMsg" role="status" aria-live="polite"></div>
+
+    <script src="js/cart.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        var gifts = [
+            { id:"g1", name:"صندوق تذوق الكراميل", desc:"4 قطع مختارة", price:99, emoji:"🎀", img:"box4.jpg" },
+            { id:"g2", name:"صندوق الهدايا الفاخر", desc:"8 قطع مع تغليف ذهبي", price:180, emoji:"💝", img:"box8.jpg" },
+            { id:"g3", name:"صندوق المناسبات", desc:"12 قطعة + نقش الاسم", price:280, emoji:"👑", img:"box12.jpg" }
+        ];
+
+        function renderGifts() {
+            var grid = document.getElementById('giftGrid');
+            grid.innerHTML = gifts.map(function(g) {
+                var imgHtml = g.img
+                    ? '<img src="images/' + g.img + '" alt="' + g.name + '" style="width:80px;height:80px;object-fit:cover;border-radius:12px;margin-bottom:10px;" loading="lazy">'
+                    : '<div class="gift-icon">' + g.emoji + '</div>';
+                return '<div class="gift-card">' +
+                    imgHtml +
+                    '<div class="gift-title">' + g.name + '</div>' +
+                    '<div class="gift-desc">' + g.desc + '</div>' +
+                    '<div class="gift-price">' + g.price + ' د.ل</div>' +
+                    '<button class="btn-add" data-gift="' + g.id + '">أضف للسلة</button>' +
+                '</div>';
+            }).join('');
+
+            document.querySelectorAll('.btn-add').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    addGiftToCart(btn.dataset.gift);
+                });
+            });
+        }
+
+        renderGifts();
+    })();
+    </script>
+</body>
+</html>
