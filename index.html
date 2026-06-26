@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2C1810">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>CARAMISC - كيك الكراميل الفاخر | طرابلس</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+        <a href="index.html" class="nav-logo">
+            <span class="ar">كراميسك</span> CARAMISC
+        </a>
+        <button class="nav-cart" id="navCartIcon" aria-label="سلة المشتريات">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="pointer-events:none;">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </nav>
+
+    <!-- Side Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="index.html#new-arrivals">✨ وصل حديثاً</a></li>
+        <li><a href="products.html">📋 جميع المنتجات</a></li>
+        <li><a href="gifts.html">🎁 صناديق الهدايا</a></li>
+        <li><a href="index.html#timeline">📖 قصتنا</a></li>
+        <li><a href="https://wa.me/218917021437" target="_blank" rel="noopener">💬 واتساب</a></li>
+    </ul>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <canvas id="particleCanvas"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-brand">CARAMISC<span class="ar">كراميسك</span></h1>
+            <p class="hero-tagline">كيك الكراميل بجميع أنواعه · طرابلس</p>
+            <a href="products.html" class="hero-cta">استكشف القائمة</a>
+        </div>
+        <div class="scroll-hint">↓ اسحب للأسفل</div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="section new-arrivals" id="new-arrivals">
+        <div class="new-badge-header">
+            <span class="new-flash">✨ جديد</span>
+            <h2 class="section-title">تصفح منتجاتنا</h2>
+            <p class="section-subtitle">تشكيلة جديدة من كيك الكراميل</p>
+        </div>
+        <div class="products-grid new-products-grid" id="newProductsGrid"></div>
+        <div style="text-align:center;margin-top:28px;">
+            <a href="products.html" style="display:inline-block;padding:12px 32px;background:var(--caramel-dark);color:#fff;border-radius:25px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:all 0.2s;">عرض جميع المنتجات →</a>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section" id="timeline">
+        <div class="section">
+            <h2 class="section-title">قصتنا</h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-number">01</div>
+                    <h3 class="timeline-title">مكونات طازجة</h3>
+                    <p class="timeline-desc">نختار أجود أنواع الزبدة والقشطة الطازجة يومياً من أسواق طرابلس.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-number">02</div>
+                    <h3 class="timeline-title">كراميل ذهبي</h3>
+                    <p class="timeline-desc">يُطهى السكر البني ببطء حتى يصل للونه الذهبي المثالي.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-number">03</div>
+                    <h3 class="timeline-title">خبز يومي</h3>
+                    <p class="timeline-desc">تُخبز كل قالب كيك في نفس اليوم لضمان طراوة لا تُقاوم.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-number">04</div>
+                    <h3 class="timeline-title">توصيل مبرد</h3>
+                    <p class="timeline-desc">نوصلك طلبك مبرداً في طرابلس خلال ساعتين.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="section" style="background:linear-gradient(180deg,var(--cream) 0%,#fff 100%);">
+        <h2 class="section-title">استكشف المزيد</h2>
+        <p class="section-subtitle">اختر ما يناسبك</p>
+        <div class="gift-grid" style="max-width:800px;">
+            <a href="products.html" class="gift-card" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center;">
+                <div class="gift-icon">📋</div>
+                <div class="gift-title">جميع المنتجات</div>
+                <div class="gift-desc">تصفح كامل تشكيلة كيك الكراميل</div>
+            </a>
+            <a href="gifts.html" class="gift-card" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center;">
+                <div class="gift-icon">🎁</div>
+                <div class="gift-title">صناديق الهدايا</div>
+                <div class="gift-desc">هدية مثالية لمن تحب</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">CARAMISC كراميسك</div>
+        <p class="footer-desc">متخصصون في كيك الكراميل الفاخر. تشكيلة فريدة من الحلويات المصنوعة يدوياً في قلب طرابلس.</p>
+        <p class="footer-location">📍 طرابلس، ليبيا | 📞 <a href="https://wa.me/218917021437" rel="noopener">+218 91-8977218</a></p>
+        <div class="footer-bottom">© 2026 CARAMISC. جميع الحقوق محفوظة.</div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>🛒 سلة المشتريات</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="إغلاق">✕</button>
+        </div>
+        <div class="cart-items-list" id="cartItemsList"></div>
+        <div class="cart-footer-area">
+            <div class="cart-total"><span>المجموع</span><span id="cartTotal">0 د.ل</span></div>
+            <button class="btn-whatsapp" id="whatsappOrderBtn">📱 اطلب عبر واتساب</button>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="pdp-overlay" id="pdpOverlay">
+        <div class="pdp-box">
+            <button class="pdp-close-btn" id="pdpCloseBtn" aria-label="إغلاق">✕</button>
+            <div class="pdp-img" id="pdpImage"></div>
+            <div class="pdp-details">
+                <h2 id="pdpName"></h2>
+                <p class="origin" id="pdpOrigin"></p>
+                <p class="price" id="pdpPrice"></p>
+                <p class="desc" id="pdpDesc"></p>
+                <div class="pdp-actions">
+                    <div class="qty-box">
+                        <button id="pdpMinus" aria-label="تقليل">−</button>
+                        <span id="pdpQty">1</span>
+                        <button id="pdpPlus" aria-label="زيادة">+</button>
+                    </div>
+                    <button class="btn-pdp-add" id="pdpAddBtn">أضف للسلة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <button class="whatsapp-float-btn" onclick="window.open('https://wa.me/218917021437','_blank')" title="تواصل واتساب" aria-label="تواصل واتساب">💬</button>
+
+    <!-- Toast -->
+    <div class="toast-msg" id="toastMsg" role="status" aria-live="polite"></div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        var newProducts = [
+            { id:101, name:"كيك كراميل بالفستق", origin:"فستق حلبي مُحمص مع كراميل ذهبي", price:110, category:"cake", emoji:"🥜", img:"pistachio.jpg", desc:"طبقات إسفنجية فانيلا مع كريمة كراميل غنية ومكسرات فستق حلبي محمصة يدوياً.", isNew:true },
+            { id:102, name:"تشيز كيك التوت البري", origin:"توت بري طازج مع صوص الكراميل", price:105, category:"cheesecake", emoji:"🫐", img:"berry.jpg", desc:"تشيز كيك كريمي مع طبقة توت بري طازج وصوص كراميل مملح، مزيج مثالي من الحموضة والحلاوة.", isNew:true },
+            { id:103, name:"كيك التمر باللوز", origin:"تمر مجهول + لوز محمص", price:95, category:"cake", emoji:"🌴", img:"dates.jpg", desc:"كيك غني بالتمر المجهول الطرابلسي مع قطع اللوز المحمص وصوص الكراميل.", isNew:true },
+            { id:104, name:"سوفتي كراميل", origin:"كيك اسفنجي طري بالكراميل", price:80, category:"cake", emoji:"🍮", img:"softy.jpg", desc:"كيك اسفنجي فائق الطراوة مغموس بصوص الكراميل الدافئ، يذوب في الفم.", isNew:true }
+        ];
+
+        function getImageHTML(p) {
+            if (p.img) return '<img src="images/' + p.img + '" alt="' + p.name + '" loading="lazy">';
+            return '<span class="product-emoji">' + p.emoji + '</span>';
+        }
+
+        function renderNewProducts() {
+            var grid = document.getElementById('newProductsGrid');
+            if (!grid) return;
+            grid.innerHTML = newProducts.map(function(p) {
+                return '<div class="product-card" data-new-pid="' + p.id + '">' +
+                    '<div class="new-tag">جديد</div>' +
+                    '<div class="product-img">' + getImageHTML(p) + '</div>' +
+                    '<div class="product-info">' +
+                        '<div class="product-name">' + p.name + '</div>' +
+                        '<div class="product-origin">' + p.origin + '</div>' +
+                        '<div class="product-footer">' +
+                            '<span class="product-price">' + p.price + ' د.ل</span>' +
+                            '<button class="btn-new-quick" data-new-quick="' + p.id + '">+</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+
+            document.querySelectorAll('#newProductsGrid .product-card').forEach(function(card) {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('.btn-new-quick')) return;
+                    var pid = parseInt(card.dataset.newPid);
+                    openPdp(pid);
+                });
+            });
+            document.querySelectorAll('.btn-new-quick').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var pid = parseInt(btn.dataset.newQuick);
+                    addToCart(pid, 1);
+                });
+            });
+        }
+
+        renderNewProducts();
+    })();
+    </script>
+</body>
+</html>
